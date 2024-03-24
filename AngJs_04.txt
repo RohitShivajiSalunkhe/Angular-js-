@@ -1,0 +1,44 @@
+<html><head>
+    <title>Simple Arithmetic Calculator (with Function-Object)</title>    
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body  ng-app="MyApp">
+        <h1>Example of Arithmetic Calculator</h1>
+        <div  ng-controller="MyCntr">
+            <p>Enter 1st Number:<input type="number" ng-model="n1"></p>
+            <p>Enter 2nd Number:<input type="number" ng-model="n2"></p>
+            <p><button ng-click="add()">+</button>
+            <button ng-click="sub()">-</button>
+            <button ng-click="mul()">*</button>
+            <button ng-click="div()">/</button>
+            <button ng-click="mod()">%</button><br><br>
+            Result:<input type="number" ng-model="n3"></p>
+        </div>
+        <script>
+        angular.module("MyApp",[]).controller('MyCntr',['$scope',function($scope)
+        {
+            $scope.res=0;
+            $scope.add=function()
+            {
+                $scope.n3=$scope.n1+$scope.n2;
+            }
+            $scope.sub=function()
+            {
+                $scope.n3=$scope.n1-$scope.n2;
+            }
+            $scope.mul=function()
+            {
+                $scope.n3=$scope.n1*$scope.n2;
+            }
+            $scope.div=function()
+            {
+                $scope.n3=$scope.n1/$scope.n2;
+            }
+            $scope.mod=function()
+            {
+                $scope.n3=$scope.n1%$scope.n2;
+            }
+        }]);
+        </script>
+    </body>
+</html>

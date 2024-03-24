@@ -1,0 +1,39 @@
+<html><head>
+    <title>Simple Arithmetic Calculator</title>    
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body  ng-app="MyApp">
+        <h1>Check Number is Perfect or Not</h1>
+        <div  ng-controller="MyCntr">
+            <p>Enter any Number:<input type="number" ng-model="n"><br><br>
+            <button ng-click="isPerfect()">isPerfect?</button><br><br>  
+            Result:<input type="text" ng-model="res"></p>
+        </div>
+        <script>
+        angular.module("MyApp",[]).controller('MyCntr',['$scope',function($scope)
+        {
+            $scope.isPerfect = function()
+            {
+                var num=$scope.n;
+                var  f=1,s=0;
+                while(f<num)
+                {
+                    if(num%f==0)
+                    {
+                        s+=f;
+                    }
+                    f++;
+                }
+                if(s==num)
+                {
+                    $scope.res="Yes";
+                }
+                else
+                {
+                    $scope.res="No";
+                }
+            }
+        }]);
+        </script>
+    </body>
+</html>
